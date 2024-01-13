@@ -1,0 +1,7 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: my_moveit_xarm6_description
+    relative_path: urdf/xarm6.urdf
+  SRDF:
+    relative_path: config/_xarm6_macro.srdf.xacro
+

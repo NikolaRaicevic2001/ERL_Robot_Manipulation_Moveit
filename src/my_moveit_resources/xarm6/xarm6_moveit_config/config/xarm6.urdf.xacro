@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="xarm6">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+    <xacro:arg name="ros2_control_hardware_type" default="mock_components" />
+
+    <!-- Import xarm6 urdf file -->
+    <xacro:include filename="$(find my_moveit_xarm6_description)/urdf/xarm6_without_gripper.urdf" />
+
+    <!-- Import xarm6 ros2_control description -->
+    <xacro:include filename="xarm6.ros2_control.xacro" />
+    <xacro:include filename="xarm6_gripper.ros2_control.xacro" />
+
+    <xacro:xarm6_ros2_control name="Xarm6FakeSystem" initial_positions_file="$(arg initial_positions_file)" ros2_control_hardware_type="$(arg ros2_control_hardware_type)"/>
+    <xacro:xarm6_gripper_ros2_control name="Xarm6HandFakeSystem" ros2_control_hardware_type="$(arg ros2_control_hardware_type)"/>
+
+</robot>
