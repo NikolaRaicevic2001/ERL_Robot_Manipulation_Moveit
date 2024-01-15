@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: my_moveit_xarm6_description
+    relative_path: urdf/xarm6.urdf
+  srdf:
+    relative_path: config/xarm6.srdf
+  package_settings:
+    author_name: ag
+    author_email: ag@ucsd.edu
+    generated_timestamp: 1705185321
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
