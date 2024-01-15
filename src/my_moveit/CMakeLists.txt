@@ -8,27 +8,50 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
+find_package(moveit REQUIRED)
+find_package(xarm_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
+set(dependencies "rclcpp" "std_msgs" "geometry_msgs" "xarm_msgs" "moveit")
 
 # Adding Executables
-add_executable(my_moveit src/my_moveit.cpp)
+add_executable(panda_moveit_target_pose src/panda_moveit_target_pose.cpp)
+add_executable(xarm6_moveit_target_pose src/xarm6_moveit_target_pose.cpp)
 
-target_include_directories(my_moveit PUBLIC
+# Include directories for the executables
+target_include_directories(panda_moveit_target_pose PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(my_moveit PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-ament_target_dependencies(
-  my_moveit
+target_include_directories(xarm6_moveit_target_pose PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+# Compile features for the executables
+target_compile_features(panda_moveit_target_pose PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+target_compile_features(xarm6_moveit_target_pose PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
+# Dependencies for the executables
+ament_target_dependencies(panda_moveit_target_pose
   "moveit_ros_planning_interface"
   "rclcpp"
 )
+ament_target_dependencies(xarm6_moveit_target_pose
+  ${dependencies}
+)
 
-install(TARGETS my_moveit
-  DESTINATION lib/${PROJECT_NAME})
+# Install executables
+install(TARGETS
+  panda_moveit_target_pose
+  xarm6_moveit_target_pose
+  DESTINATION lib/${PROJECT_NAME}
+)
 
+# Install launch directory
 install(DIRECTORY launch 
-DESTINATION share/${PROJECT_NAME})
-
+  DESTINATION share/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
