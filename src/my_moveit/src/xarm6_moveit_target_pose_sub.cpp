@@ -91,34 +91,8 @@ int main(int argc, char** argv)
 
     exec_plan_req->wait = true;
 
-    geometry_msgs::msg::Pose target_pose1;
-    target_pose1.position.x = 0.3;
-	target_pose1.position.y = -0.1;
-	target_pose1.position.z = 0.2;
-	target_pose1.orientation.x = 1;
-	target_pose1.orientation.y = 0;
-	target_pose1.orientation.z = 0;
-	target_pose1.orientation.w = 0;
-
-    geometry_msgs::msg::Pose target_pose2;
-    target_pose2.position.x = 0.3;
-	target_pose2.position.y = 0.1;
-	target_pose2.position.z = 0.2;
-	target_pose2.orientation.x = 1;
-	target_pose2.orientation.y = 0;
-	target_pose2.orientation.z = 0;
-	target_pose2.orientation.w = 0;
-    
     while (rclcpp::ok())
     {
-        pose_plan_req->target = target_pose1;
-        call_request(pose_plan_client_, pose_plan_req);
-        call_request(exec_plan_client_, exec_plan_req);
-
-        pose_plan_req->target = target_pose2;
-        call_request(pose_plan_client_, pose_plan_req);
-        call_request(exec_plan_client_, exec_plan_req);
-
         // Explicitly call spin_once to handle any pending callbacks
         rclcpp::spin_some(minimal_subscriber);
 

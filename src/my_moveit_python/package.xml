@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>my_moveit_python</name>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="nmarinosraitsevits@ucsd.edu">erl-tianyu</maintainer>
+  <license>TODO: License declaration</license>
+
+  <depend>ament_cmake_core</depend>
+  <depend>rclpy</depend>
+  <depend>xarm_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+    <run_depend>rclpy</run_depend>
+    <run_depend>xarm_msgs</run_depend>
+    <run_depend>geometry_msgs</run_depend>
+    <run_depend>std_msgs</run_depend>
+  </export>
+</package>
