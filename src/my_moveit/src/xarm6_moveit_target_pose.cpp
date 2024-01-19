@@ -1,10 +1,3 @@
-/* Copyright 2021 UFACTORY Inc. All Rights Reserved.
- *
- * Software License Agreement (BSD License)
- *
- * Author: Vinman <vinman.cub@gmail.com>
- ============================================================================*/
-
 #include <signal.h>
 #include <thread>
 #include <rclcpp/rclcpp.hpp>
