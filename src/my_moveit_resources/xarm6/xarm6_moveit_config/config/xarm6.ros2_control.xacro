@@ -1,19 +1,12 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-
-    <xacro:macro name="xarm6_ros2_control" params="name initial_positions_file ros2_control_hardware_type">
-        <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
+    <xacro:macro name="xarm6_ros2_control" params="name initial_positions_file">
+        <xacro:property name="initial_positions" value="${load_yaml(initial_positions_file)['initial_positions']}"/>
 
         <ros2_control name="${name}" type="system">
             <hardware>
-                <xacro:if value="${ros2_control_hardware_type == 'mock_components'}">
-                    <plugin>mock_components/GenericSystem</plugin>
-                </xacro:if>
-                <xacro:if value="${ros2_control_hardware_type == 'isaac'}">
-                    <plugin>topic_based_ros2_control/TopicBasedSystem</plugin>
-                    <param name="joint_commands_topic">/isaac_joint_commands</param>
-                    <param name="joint_states_topic">/isaac_joint_states</param>
-                </xacro:if>
+                <!-- By default, set up controllers for simulation. This won't work on real hardware -->
+                <plugin>mock_components/GenericSystem</plugin>
             </hardware>
             <joint name="joint1">
                 <command_interface name="position"/>
@@ -57,6 +50,7 @@
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>
+
         </ros2_control>
     </xacro:macro>
 </robot>

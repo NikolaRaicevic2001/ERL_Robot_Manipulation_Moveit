@@ -3,23 +3,15 @@ controller_manager:
   ros__parameters:
     update_rate: 100  # Hz
 
-    xarm6_arm_controller:
+    xarm6_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
-    xarm6_hand_controller:
-      type: position_controllers/GripperActionController
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-
-xarm6_arm_controller:
+xarm6_controller:
   ros__parameters:
-    command_interfaces:
-      - position
-    state_interfaces:
-      - position
-      - velocity
     joints:
       - joint1
       - joint2
@@ -27,9 +19,8 @@ xarm6_arm_controller:
       - joint4
       - joint5
       - joint6
-
-xarm6_hand_controller:
-  ros__parameters:
-    joint: left_finger_joint
-    joint: right_finger_joint
-
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
