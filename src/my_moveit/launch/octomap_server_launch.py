@@ -9,11 +9,11 @@ from launch.actions import DeclareLaunchArgument
 def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument('input_cloud_topic', default_value='/camera/camera/depth/color/points'),
-        DeclareLaunchArgument('resolution', default_value='0.15'),
-        DeclareLaunchArgument('frame_id', default_value='map'),
-        DeclareLaunchArgument('base_frame_id', default_value='base_footprint'),
+        DeclareLaunchArgument('resolution', default_value='0.01'),
+        DeclareLaunchArgument('frame_id', default_value='camera_depth_optical_frame'),
+        DeclareLaunchArgument('base_frame_id', default_value='camera_link'),
         DeclareLaunchArgument('height_map', default_value='True'),
-        DeclareLaunchArgument('colored_map', default_value='True'),
+        DeclareLaunchArgument('colored_map', default_value='False'),
         DeclareLaunchArgument('color_factor', default_value='0.8'),
         DeclareLaunchArgument('filter_ground', default_value='False'),
         DeclareLaunchArgument('filter_speckles', default_value='False'),
