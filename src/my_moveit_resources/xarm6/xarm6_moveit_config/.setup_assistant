@@ -7,7 +7,7 @@ moveit_setup_assistant_config:
   package_settings:
     author_name: ag
     author_email: ag@ucsd.edu
-    generated_timestamp: 1705100237
+    generated_timestamp: 1709160817
   control_xacro:
     command:
       - position
