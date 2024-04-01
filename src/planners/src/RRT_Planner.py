@@ -7,7 +7,7 @@ WINDOW_SIZE = 600
 NUM_OBSTACLES = 10
 OBSTACLE_SIZE = 30
 STEP_SIZE = 20
-GOAL_BIAS = 0.05  # Probability of choosing goal as the new point
+GOAL_BIAS = 0.005  # Probability of choosing goal as the new point
 MAX_ITERATIONS = 1000
 
 # Colors
@@ -30,10 +30,8 @@ class RRTNode:
         self.y = y
         self.parent = None
 
-
 def distance(node1, node2):
     return np.sqrt((node1.x - node2.x) ** 2 + (node1.y - node2.y) ** 2)
-
 
 def is_collision_free(point, obstacles):
     for obstacle in obstacles:
