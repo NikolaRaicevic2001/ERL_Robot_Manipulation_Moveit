@@ -1,4 +1,4 @@
-# Robot Manipulation ERL    
+# ERL Robot Manipulation Moveit
 
 This repository contains ongoing research on robot manipulation conducted in the Existential Robotics Laboratory at UC San Diego.
 
