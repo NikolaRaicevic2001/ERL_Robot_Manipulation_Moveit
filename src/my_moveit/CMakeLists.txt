@@ -18,75 +18,31 @@ find_package(moveit_visual_tools REQUIRED)
 set(dependencies "rclcpp" "std_msgs" "geometry_msgs" "xarm_msgs" "moveit")
 
 # Adding Executables
-add_executable(panda_moveit_target_pose src/panda_moveit_target_pose.cpp)
-add_executable(xarm6_moveit_target_pose_colobj src/xarm6_moveit_target_pose_colobj.cpp)
-add_executable(xarm6_moveit_target_pose_moveit src/xarm6_moveit_target_pose_moveit.cpp)
-add_executable(xarm6_moveit_target_pose_sub src/xarm6_moveit_target_pose_sub.cpp)
-add_executable(xarm6_moveit_target_pose_sub2 src/xarm6_moveit_target_pose_sub2.cpp)
-add_executable(xarm6_moveit_target_pose src/xarm6_moveit_target_pose.cpp)
+# add_executable(panda_moveit_target_pose src/panda_moveit_target_pose.cpp)
+
 # Include directories for the executables
-target_include_directories(panda_moveit_target_pose PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-target_include_directories(xarm6_moveit_target_pose_colobj PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-target_include_directories(xarm6_moveit_target_pose_moveit PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-target_include_directories(xarm6_moveit_target_pose_sub PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-target_include_directories(xarm6_moveit_target_pose_sub2 PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-target_include_directories(xarm6_moveit_target_pose PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-  
+# target_include_directories(panda_moveit_target_pose PUBLIC
+#   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+#   $<INSTALL_INTERFACE:include>)
+
 # Compile features for the executables
-target_compile_features(panda_moveit_target_pose PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-target_compile_features(xarm6_moveit_target_pose_colobj PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-target_compile_features(xarm6_moveit_target_pose_moveit PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-target_compile_features(xarm6_moveit_target_pose_sub PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-target_compile_features(xarm6_moveit_target_pose_sub2 PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-target_compile_features(xarm6_moveit_target_pose PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+# target_compile_features(panda_moveit_target_pose PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
 # Dependencies for the executables
-ament_target_dependencies(panda_moveit_target_pose
-  "moveit_ros_planning_interface"
-  "moveit_visual_tools"
-  "rclcpp"
-)
-ament_target_dependencies(xarm6_moveit_target_pose_colobj
-  "moveit_ros_planning_interface"
-  "moveit_visual_tools"
-  "rclcpp"
-)
-ament_target_dependencies(xarm6_moveit_target_pose_moveit
-  "moveit_ros_planning_interface"
-  "moveit_visual_tools"
-  "rclcpp"
-)
-ament_target_dependencies(xarm6_moveit_target_pose_sub
-  ${dependencies}
-)
-ament_target_dependencies(xarm6_moveit_target_pose_sub2
-  ${dependencies}
-)
-ament_target_dependencies(xarm6_moveit_target_pose
-  ${dependencies}
-)
+# ament_target_dependencies(panda_moveit_target_pose
+#   "moveit_ros_planning_interface"
+#   "moveit_visual_tools"
+#   "rclcpp"
+# )
+# ament_target_dependencies(xarm6_moveit_target_pose_sub
+  # ${dependencies}
+# )
 
 # Install executables
-install(TARGETS
-  panda_moveit_target_pose
-  xarm6_moveit_target_pose_colobj
-  xarm6_moveit_target_pose_moveit
-  xarm6_moveit_target_pose_sub
-  xarm6_moveit_target_pose_sub2
-  xarm6_moveit_target_pose
-  DESTINATION lib/${PROJECT_NAME}
-)
+# install(TARGETS
+#   panda_moveit_target_pose
+#   DESTINATION lib/${PROJECT_NAME}
+# )
 
 # Install launch directory
 install(DIRECTORY launch 
