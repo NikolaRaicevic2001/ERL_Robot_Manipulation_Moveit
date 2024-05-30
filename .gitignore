@@ -1,5 +1,15 @@
 .vscode
-build 
-install
+/build 
+/install
 /log
-/bag_files
+
+# Packages
+src/launch_param_builder  
+src/moveit2_tutorials  
+src/moveit_task_constructor  
+src/rosparam_shortcuts  
+src/xarm_ros2
+src/moveit2               
+src/moveit_resources   
+src/moveit_visual_tools      
+src/srdfdom
