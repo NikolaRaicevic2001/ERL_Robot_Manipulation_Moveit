@@ -5,11 +5,17 @@
 
 # Packages
 src/launch_param_builder  
-src/moveit2_tutorials  
-src/moveit_task_constructor  
-src/rosparam_shortcuts  
+src/moveit_resources   
+src/octomap_server2
+src/realsense-ros
 src/xarm_ros2
 src/moveit2               
-src/moveit_resources   
-src/moveit_visual_tools      
+src/moveit_task_constructor  
+src/octomap
+src/pcl_msgs
+src/rosparam_shortcuts  
+src/moveit2_tutorials  
+src/moveit_visual_tools   
+src/octomap_msgs
+src/perception_pcl
 src/srdfdom

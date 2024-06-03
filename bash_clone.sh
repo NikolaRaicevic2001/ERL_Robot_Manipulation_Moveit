@@ -41,6 +41,22 @@ $ rosdep install --from-paths . --ignore-src --rosdistro $ROS_DISTRO -y
 cd ../
 source /opt/ros/humble/setup.bash 
 colcon build
-                      
+
+# Realsense
+cd src/
+sudo apt install ros-humble-librealsense2*
+sudo apt install ros-humble-realsense2-*
+git clone https://github.com/IntelRealSense/realsense-ros.git
+
 # Octomap
-                      
+git clone https://github.com/OctoMap/octomap.git
+cd octomap
+mkdir build
+cd build
+cmake ..
+make
+
+cd ../../
+git clone https://github.com/iKrishneel/octomap_server2.git
+cd octomap_server2/
+vcs import . < deps.repos
