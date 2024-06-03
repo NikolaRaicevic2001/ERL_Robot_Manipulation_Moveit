@@ -8,7 +8,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 def generate_launch_description():
     # Path to the launch files of different packages
     package_name1 = 'realsense2_camera'
-    package_name2 = 'octomap_server2'
+    package_name2 = 'my_moveit'
     package_name3 = 'my_moveit'
 
     # Get package directories
