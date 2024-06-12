@@ -27,7 +27,7 @@ def generate_launch_description():
     static_transform_publisher_node = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        arguments=['-0.243', '-0.225', '1.162', '-0.9119', '-0.0267', '2.0038', 'camera_link', 'world']
+        arguments=['0.11102413' ,'-0.06191412'  ,'0.70101589', '0.18104651', '0.96063305', '0.07411852', 'camera_link', 'world']
     )
 
     # Include launch files

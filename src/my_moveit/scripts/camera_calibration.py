@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import rclpy
 from rclpy.qos import QoSProfile
 from sensor_msgs.msg import Image, CameraInfo  # Add import for CameraInfo
@@ -28,10 +30,10 @@ def image_callback(msg):
     gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
     
     # Define ArUco dictionary and parameters
-    aruco_dict = aruco.getPredefinedDictionary(aruco.DICT_6X6_100)
-    parameters =  aruco.DetectorParameters()
-    detector = aruco.ArucoDetector(aruco_dict, parameters)
-    corners, markerIds, rejectedCandidates = detector.detectMarkers(gray)
+    aruco_dict = aruco.getPredefinedDictionary(aruco.DICT_6X6_250)
+    parameters = aruco.DetectorParameters()
+
+    corners, markerIds, rejectedCandidates = aruco.detectMarkers(gray, aruco_dict, parameters=parameters)
 
     # Detect ArUco markers
     if markerIds is not None:
