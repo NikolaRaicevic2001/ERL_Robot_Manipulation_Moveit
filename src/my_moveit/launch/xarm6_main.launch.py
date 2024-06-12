@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 
 from ament_index_python.packages import get_package_share_directory
@@ -25,8 +27,10 @@ def generate_launch_description():
     launch_description = LaunchDescription([
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(launch_file1),
-            launch_arguments={'depth_module.depth_profile:=1280x720x30'}.items(),
-            launch_arguments={'pointcloud.enable:=true'}.items(),
+            launch_arguments={
+                'depth_module.depth_profile': '1280x720x30',
+                'pointcloud.enable': 'true'
+            }.items(),
         ),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(launch_file2),
@@ -40,5 +44,6 @@ def generate_launch_description():
 
     return launch_description
 
+
 # ros2 launch realsense2_camera rs_launch.py depth_module.depth_profile:=1280x720x30 pointcloud.enable:=true
-# ros2 launch octomap_server2 octomap_server_launch.py
+# ros2 launch my_moveit octomap_server_launch.py
